@@ -50,10 +50,9 @@ while (!Raylib.WindowShouldClose())
             scene = "game";
         }
 
-
     }
     if (scene == "game")
-    {   
+    {
         // Så att man kan gå höger och vänster och så att gubben vänder på sig när man går motsatta hållet
         movement = Vector2.Zero;
         if (Raylib.IsKeyDown(KeyboardKey.KEY_D))
@@ -143,10 +142,10 @@ while (!Raylib.WindowShouldClose())
         // Bilder i "start"
         Raylib.DrawTexture(startbackround, 0, 0, Color.WHITE);
         Raylib.DrawTexture(Startbutton, 750, 300, Color.WHITE);
-    
+
     }
     if (scene == "game")
-    {   
+    {
         // Bilder i scenen "game"
         Raylib.DrawTexture(gamebackround, 0, 0, Color.WHITE);
         dest = new Rectangle(position.X, position.Y, size * 4, size * 4);
