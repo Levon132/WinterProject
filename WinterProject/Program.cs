@@ -26,7 +26,8 @@ Rectangle src = new Rectangle(0, 80, size, size);
 Texture2D enemysheet = Raylib.LoadTexture("assets/Skeleton/Sprite Sheets/Skeleton Walk.png");
 Rectangle enemydest = new Rectangle(0, 0, 21, 35);
 
-
+Level lvl = new Level(1);
+lvl.SpawnEnemies();
 
 double framesPerSecond = 12;
 
@@ -66,6 +67,7 @@ while (!Raylib.WindowShouldClose())
             direction = -1;
         }
 
+
         position += movement;
 
         // Animation
@@ -82,6 +84,7 @@ while (!Raylib.WindowShouldClose())
             currentAnimation = 2;
             animationTimer = 0.0f;
         }
+
 
 
         animationTimer += Raylib.GetFrameTime();
@@ -110,7 +113,7 @@ while (!Raylib.WindowShouldClose())
             if (currentFrame < maxFrames)
             {
                 currentFrame++;
-            }
+                }
             else
             {
                 currentFrame = 0;
@@ -150,6 +153,8 @@ while (!Raylib.WindowShouldClose())
         Raylib.DrawTexture(gamebackround, 0, 0, Color.WHITE);
         dest = new Rectangle(position.X, position.Y, size * 4, size * 4);
         Raylib.DrawTexturePro(spriteSheet, src, dest, Vector2.Zero, 0.0f, Color.WHITE);
+
+        lvl.Draw();
     }
 
     Raylib.EndDrawing();
